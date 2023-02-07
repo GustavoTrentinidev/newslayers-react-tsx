@@ -8,7 +8,17 @@ module.exports = {
     fontFamily: {
       kadwa: ['Kadwa', 'serif']
     },
-    extend: {},
+    extend: {
+      keyframes:{
+        descida:{
+          '0%': {transform: 'translateY(-100%)'},
+          '100%': {transform: 'translateY(0%)'}
+        }
+      },
+      animation: {
+        'nav-drop': 'descida .5s',
+      },
+    },
   },
   plugins: [],
 }
