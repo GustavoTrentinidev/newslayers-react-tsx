@@ -37,7 +37,7 @@ export function Sidenav(){
                                         {
                                             AvailableTopics.map((topic)=>{
                                                 return (
-                                                    <li className='text-sm font-normal'>{topic}</li>
+                                                    <li key={topic} className='text-sm font-normal'>{topic}</li>
                                                 )
                                             })
                                         }
