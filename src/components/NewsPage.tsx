@@ -23,7 +23,7 @@ export interface noticeObject {
 }
 
 interface noticeMidiaType {
-    midiapath: string
+    midiapath: string, 
 }
 
 interface noticeUserType {
@@ -62,7 +62,6 @@ export function NewsPage(){
     async function getNews(page: number){
         const {data} = await api.get(`noticias/?page=${page}`)
         setNews(data)
-        console.log(data)
     }
 
 
@@ -76,26 +75,22 @@ export function NewsPage(){
                 {      
                     news?.results.map((notice: noticeObject)=>{
                         return(
-                            <NewsCard notice={notice}/>
+                            <NewsCard key={notice.id} notice={notice}/>
                         )
                     })
                 }
             </div>
             <div className='flex gap-1 items-center w-screen justify-center p-4'>
                 {
-                    news?.previous
-                    ?
-                    <button className='bg-slate-900 text-white w-6 h-6 flex items-center justify-center text-xl font-kadwa rounded' onClick={()=>{setPage(page-1)}}>&lsaquo;</button>
-                    : 
-                    null
+                    news?.previous && (
+                        <button className='bg-slate-900 text-white w-6 h-6 flex items-center justify-center text-xl font-kadwa rounded' onClick={()=>{setPage(page-1)}}>&lsaquo;</button>
+                    )
                 }
                 <div className='bg-slate-900 text-white w-6 h-6 flex items-center justify-center text-lg font-kadwa'>{page}</div>
                 {
-                    news?.next
-                    ?
-                    <button className='bg-slate-900 text-white w-6 h-6 flex items-center justify-center text-xl font-kadwa rounded' onClick={()=>{setPage(page+1)}}>&rsaquo;</button>
-                    :
-                    null
+                    news?.next && (
+                        <button className='bg-slate-900 text-white w-6 h-6 flex items-center justify-center text-xl font-kadwa rounded' onClick={()=>{setPage(page+1)}}>&rsaquo;</button>
+                    )
                 }
             </div>
         </div>

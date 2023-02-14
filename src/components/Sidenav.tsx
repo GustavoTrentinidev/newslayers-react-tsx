@@ -1,6 +1,6 @@
 import { VscThreeBars } from 'react-icons/vsc';
 import { MdClose } from 'react-icons/md';
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { ClipPath } from './Header';
 
@@ -8,6 +8,7 @@ import { ClipPath } from './Header';
 export function Sidenav(){
     let [expanded, setExpanded] = useState<boolean>(false)
     let [noticiasExpanded, setNoticiasExpanded] = useState<boolean>(false)
+    
     function expand(){
         setExpanded(!expanded)
     }
@@ -20,8 +21,8 @@ export function Sidenav(){
             {
                 expanded 
                 ? 
-                <div className={"z-10 w-screen h-screen bg-black bg-opacity-50 top-0 left-0 absolute md:hidden"} onClick={(e)=>{e.stopPropagation()}}>
-                    <div className={"absolute top-0 left-0 h-2/3 w-screen bg-slate-900 rounded-b-3xl transition-all animate-nav-drop"}>
+                <div className={"z-10 w-screen h-screen bg-black bg-opacity-50 top-0 left-0 fixed md:hidden"}>
+                    <div className={"fixed top-0 left-0 h-2/3 w-screen bg-slate-900 rounded-b-3xl transition-all animate-nav-drop"}>
                         <MdClose className='m-2' size={40} onClick={expand}/>
                         <div className='flex flex-col items-center gap-10'>
                             <div>Newslayers</div>
