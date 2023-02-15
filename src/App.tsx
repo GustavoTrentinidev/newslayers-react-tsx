@@ -1,12 +1,20 @@
 import './assets/global.css'
 import { Header } from './components/Header'
-import { NewsPage } from './components/NewsPage'
+import { Home } from './pages/Home'
+import { NewsTemplate } from './pages/NewsTemplate'
+
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 
 export function App() {
   return (
-    <div className="h-full min-h-screen md:h-screen w-screen p-0 pb-4 m-0 bg-gradient-to-t from-slate-700 to-slate-900">
+    <BrowserRouter>
       <Header/>
-      <NewsPage/>
-    </div>
+      <Routes>
+        <Route path='/' element={<Home/>}></Route>
+        <Route path='news/:id' element={<NewsTemplate/>}></Route>
+      </Routes>
+    </BrowserRouter>
   )
 }

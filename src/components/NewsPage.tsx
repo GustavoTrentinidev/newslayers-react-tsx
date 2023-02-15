@@ -64,7 +64,6 @@ export function NewsPage(){
         setNews(data)
     }
 
-
     useEffect(() => {
         getNews(page)
     },[page])
@@ -80,7 +79,7 @@ export function NewsPage(){
                     })
                 }
             </div>
-            <div className='flex gap-1 items-center w-screen justify-center p-4'>
+            <div className='flex gap-1 items-center w-full justify-center p-4'>
                 {
                     news?.previous && (
                         <button className='bg-slate-900 text-white w-6 h-6 flex items-center justify-center text-xl font-kadwa rounded' onClick={()=>{setPage(page-1)}}>&lsaquo;</button>
