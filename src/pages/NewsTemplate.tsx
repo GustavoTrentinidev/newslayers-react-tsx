@@ -3,6 +3,7 @@ import { api } from '../plugins/axios'
 import { noticeObject } from '../components/NewsPage'
 import { useEffect, useState } from 'react'
 import { NewsHead } from '../components/NewsHead'
+import { NewsText } from '../components/NewsText'
 
 
 export function NewsTemplate(){
@@ -23,9 +24,10 @@ export function NewsTemplate(){
         <div>
             <div className='w-full flex flex-col items-center'>
                 <NewsHead notice={news!}/>
-                <div className='w-5/6 md:w-4/6'>
-                    {/* <div className='md:w-auto w-6/7' dangerouslySetInnerHTML={{__html: news!.texto}}></div> */}
-                </div>
+                    {
+                        news &&
+                        <NewsText news={news}/>
+                    }                   
             </div>
         </div>
     )
