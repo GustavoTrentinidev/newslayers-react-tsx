@@ -26,7 +26,7 @@ interface noticeMidiaType {
     midiapath: string, 
 }
 
-interface noticeUserType {
+export interface noticeUserType {
     username: string
     id: number
     midia: midiaUserType
@@ -43,7 +43,7 @@ interface noticeToppicType {
     nometopico: string
 }
 
-interface commentaryType {
+export interface commentaryType {
     id: number
     datacomentario: string
     textocomentario: string

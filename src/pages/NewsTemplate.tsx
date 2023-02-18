@@ -4,6 +4,7 @@ import { noticeObject } from '../components/NewsPage'
 import { useEffect, useState } from 'react'
 import { NewsHead } from '../components/NewsHead'
 import { NewsText } from '../components/NewsText'
+import { NewsComments } from '../components/NewsComments'
 
 
 export function NewsTemplate(){
@@ -23,10 +24,14 @@ export function NewsTemplate(){
     return (
         <div>
             <div className='w-full flex flex-col items-center'>
-                <NewsHead notice={news!}/>
                     {
-                        news &&
-                        <NewsText news={news}/>
+                        news && (
+                            <>
+                                <NewsHead notice={news!}/>
+                                <NewsText news={news}/>
+                                <NewsComments newsID={news.id}/>
+                            </>
+                        )
                     }                   
             </div>
         </div>

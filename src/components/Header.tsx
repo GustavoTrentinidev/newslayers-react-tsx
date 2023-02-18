@@ -1,5 +1,6 @@
 import { MdSearch } from 'react-icons/md';
 import { Sidenav } from './Sidenav'
+import { Link } from 'react-router-dom'
 
 
 export function Header(){
@@ -37,7 +38,11 @@ export function Header(){
                 <div className="flex">
                     <div className="flex font-kadwa font-semibold text-2xl gap-6">
                         <Sidenav/>
-                        <div className="cursor-pointer">Newslayers</div>
+                        <div className="cursor-pointer">
+                            <Link to='/'>
+                            Newslayers
+                            </Link>
+                        </div> 
                         <div className="cursor-pointer hidden md:block" onClick={toggleArrowAndDropdown}>Notícias</div>
                     </div>
                     <div className="relative hidden md:flex gap-10">

@@ -1,6 +1,7 @@
 import { VscThreeBars } from 'react-icons/vsc';
 import { MdClose } from 'react-icons/md';
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { ClipPath } from './Header';
 
@@ -25,7 +26,7 @@ export function Sidenav(){
                     <div className={"fixed top-0 left-0 h-2/3 w-screen bg-slate-900 rounded-b-3xl transition-all animate-nav-drop"}>
                         <MdClose className='m-2' size={40} onClick={expand}/>
                         <div className='flex flex-col items-center gap-10'>
-                            <div>Newslayers</div>
+                            <Link to='/' onClick={expand}>Newslayers</Link>
                             <div className='flex flex-col items-center'>
                                 <div className='flex items-center' onClick={()=>{setNoticiasExpanded(!noticiasExpanded)}}>
                                     <div>Notícias</div>
