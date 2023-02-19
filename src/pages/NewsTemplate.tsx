@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { NewsHead } from '../components/NewsHead'
 import { NewsText } from '../components/NewsText'
 import { NewsComments } from '../components/NewsComments'
+import { RelatedContent } from '../components/RelatedContent'
 
 
 export function NewsTemplate(){
@@ -30,6 +31,7 @@ export function NewsTemplate(){
                                 <NewsHead notice={news!}/>
                                 <NewsText news={news}/>
                                 <NewsComments newsID={news.id}/>
+                                <RelatedContent news={news}/>
                             </>
                         )
                     }                   

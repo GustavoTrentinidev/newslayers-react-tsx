@@ -35,7 +35,7 @@ export function NewsComments({newsID}: propsComments){
                 (
                     comments.map((comment: typeComment)=>{
                         return (
-                             <div className='flex flex-col min-w-full md:min-w-0 bg-cyan-800 md:w-3/6 rounded'>
+                             <div key={comment.id} className='flex flex-col min-w-full md:min-w-0 bg-cyan-800 md:w-3/6 rounded'>
                                 <div className='flex items-center text-lg justify-between p-2'>
                                     <div className='flex gap-2 items-center'>
                                         <div className='w-10 h-10 rounded-full bg-cover bg-center' style={{backgroundImage: `url('${comment.user_iduser?.midia?.midiaprofilepath}')`}}></div>
