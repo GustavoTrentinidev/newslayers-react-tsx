@@ -1,6 +1,7 @@
 import { noticeUserType } from './NewsPage'
 import { useState, useEffect } from 'react'
 import { api } from '../plugins/axios'
+import { Loading } from './Loading'
 
 
 interface propsComments{
@@ -31,7 +32,7 @@ export function NewsComments({newsID}: propsComments){
     return (
         <div className='w-full text-white flex flex-col gap-2 font-kadwa items-center'>   
             {
-                comments && 
+                comments ?
                 (
                     comments.map((comment: typeComment)=>{
                         return (
@@ -49,6 +50,7 @@ export function NewsComments({newsID}: propsComments){
                         )
                     })
                 )
+                : <Loading/>
             }
         </div>
     )

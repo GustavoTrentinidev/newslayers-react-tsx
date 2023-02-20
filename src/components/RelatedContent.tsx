@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { api } from '../plugins/axios'
 import { noticeObject } from './NewsPage'
 import { NewsCard } from './NewsCard'
+import { Loading } from './Loading'
 
 
 interface newsType {
@@ -11,7 +12,7 @@ interface newsType {
 
 export function RelatedContent({news} : newsType){
 
-    const [newsNotCurrent, setNewsNotCurrent] = useState<Array<noticeObject>>([])
+    const [newsNotCurrent, setNewsNotCurrent] = useState<Array<noticeObject>>()
 
     async function getNews(){
         const {data} = await api.get(`/noticias/?idtopico=${news.topico_idtopico.id}`)
@@ -32,15 +33,20 @@ export function RelatedContent({news} : newsType){
  
     return (
         <div className='md:flex md:flex-col w-full'>
-            <div className='flex flex-col gap-4 items-center mt-4 md:flex-row md:flex-wrap md:justify-center md:items-center'>
-                {
-                    newsNotCurrent?.map((newsRelated)=>{
-                        return (
-                            <NewsCard key={newsRelated.id} notice={newsRelated}/>
-                        )
-                    })
-                }
-            </div>
+            {
+                newsNotCurrent ?
+                        <div className='flex flex-col gap-4 items-center mt-4 md:flex-row md:flex-wrap md:justify-center md:items-center'>
+                            {
+                                newsNotCurrent && 
+                                newsNotCurrent?.map((newsRelated)=>{
+                                    return (
+                                        <NewsCard key={newsRelated.id} notice={newsRelated}/>
+                                    )
+                                })
+                            }
+                        </div>
+                : <Loading/>
+            }
         </div>
     )
 }
