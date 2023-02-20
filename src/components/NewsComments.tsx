@@ -21,7 +21,7 @@ export function NewsComments({newsID}: propsComments){
 
     async function getComments(){
         const { data } = await api.get(`/comentarios/?idnoticia=${newsID}`)
-        setComments(data)
+        setComments(data.reverse())
     }
 
     useEffect(()=>{
@@ -29,7 +29,7 @@ export function NewsComments({newsID}: propsComments){
     },[])
 
     return (
-        <div className='bg-slate-900 w-full text-white flex flex-col gap-2 font-kadwa items-center'>   
+        <div className='w-full text-white flex flex-col gap-2 font-kadwa items-center'>   
             {
                 comments && 
                 (
