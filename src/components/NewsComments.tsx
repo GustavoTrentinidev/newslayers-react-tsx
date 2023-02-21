@@ -27,7 +27,7 @@ export function NewsComments({newsID}: propsComments){
 
     useEffect(()=>{
         getComments()
-    },[])
+    },[newsID])
 
     return (
         <div className='w-full text-white flex flex-col gap-2 font-kadwa items-center'>   

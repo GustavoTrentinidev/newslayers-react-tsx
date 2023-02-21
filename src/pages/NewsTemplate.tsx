@@ -19,7 +19,7 @@ export function NewsTemplate(){
     
     useEffect(()=>{
         getNews()
-    },[])
+    },[id])
 
     return (
         <div>

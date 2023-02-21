@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import { noticeObject } from './NewsPage'
 
 
@@ -34,17 +34,14 @@ export function NewsText({news} : newsTextProps){
         return textWithImage
     }
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         formatText()
-    },[fullText])
+    },[news])
     
 
     return(
         <div className='w-5/6 md:w-7/12'>
-            {
-                fullText &&
-                <div className='md:w-auto w-6/7 text-xl text-start ' dangerouslySetInnerHTML={{__html: fullText}}></div>
-            }
+            <div className='md:w-auto w-6/7 text-xl text-start ' id='innercamp' dangerouslySetInnerHTML={{__html: fullText}}></div>
         </div>
     )
 }

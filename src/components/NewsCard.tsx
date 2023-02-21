@@ -1,5 +1,6 @@
 import { noticeObject } from './NewsPage'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 
 interface propsNotice {
@@ -10,8 +11,12 @@ export function NewsCard({ notice } : propsNotice ){
     const navigate = useNavigate()
     function goToNewsRoute(id: number){
         navigate(`/news/${id}`)
+        navigate(0)
     }
 
+    useEffect(()=>{
+
+    }, [])
 
     return(
         <div key={notice.id} onClick={()=>{goToNewsRoute(notice.id)}} className='shadow-lg hover:shadow-2xl w-11/12 h-40 bg-center bg-cover relative rounded-sm md:w-3/12 md:h-52 hover:scale-105 transition-all cursor-pointer group' 

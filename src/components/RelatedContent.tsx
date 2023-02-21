@@ -29,7 +29,7 @@ export function RelatedContent({news} : newsType){
 
     useEffect(()=>{
         getNews()
-    }, [])
+    }, [news])
  
     return (
         <div className='md:flex md:flex-col w-full'>
